@@ -1,6 +1,6 @@
 package Game;
 
-public class Player
+public class Player {
     private int hp;
     private String name;
 
