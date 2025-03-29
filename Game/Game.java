@@ -46,7 +46,6 @@ public class Game {
     public static void move(Player p1, Player p2) {
         int damage = getDamage(p1.getName());
         p2.minusHp(damage);
-        return p2.isAlive();
     }
 
     private static boolean logic(int indexP1, int indexP2, Player[] players) {
