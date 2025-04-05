@@ -21,8 +21,6 @@ public class UserService {
             log.info("User already exists");
             return false;
         }
-        user.setPhoneNumber(user.getPhoneNumber());
-        user.setName(user.getName());
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.getRoles().add(Role.ROLE_USER);
