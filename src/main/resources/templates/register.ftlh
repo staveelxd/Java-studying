@@ -9,7 +9,7 @@
 <form action="/login" method="post">
     Имя пользователя: <input type="text" name="name"><br><br>
     Эл. почта: <input type="email" name="email"><br><br>
-    Номер телефона: <input type="text" name="phoneNumber"><br><br>
+    Номер телефона: <input type="text" name="phone_number"><br><br>
     Пароль: <input type="password" name="password"><br><br>
     <input type="submit" value="Регистрация">
 </form>
