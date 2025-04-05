@@ -22,7 +22,7 @@ public class SecurityConfig {
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
+
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/register").permitAll()
                         .requestMatchers("/product/**", "/image/**")
@@ -38,13 +38,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-
-    @Bean
-    public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService);
-        return authenticationProvider;
-    }
 
     @Bean
     PasswordEncoder passwordEncoder() {
