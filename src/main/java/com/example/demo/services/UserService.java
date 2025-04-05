@@ -22,7 +22,8 @@ public class UserService {
             return false;
         }
         user.setActive(true);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         user.getRoles().add(Role.ROLE_USER);
         log.info("User created with email: {}", email);
         userRepository.save(user);
