@@ -6,7 +6,7 @@
 <body>
 <h1>MAGNIT</h1><hr>
 <h2>Регистрация</h2>
-<form action="/login" method="post">
+<form action="/register" method="post">
     Имя пользователя: <input type="text" name="name"><br><br>
     Эл. почта: <input type="email" name="email"><br><br>
     Номер телефона: <input type="text" name="phone_number"><br><br>
