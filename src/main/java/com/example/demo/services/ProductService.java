@@ -2,14 +2,16 @@ package com.example.demo.services;
 
 import com.example.demo.models.Image;
 import com.example.demo.models.Product;
+import com.example.demo.models.User;
 import com.example.demo.repositories.ProductRepository;
+import com.example.demo.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.security.Principal;
 import java.util.List;
 
 @Service
@@ -17,18 +19,18 @@ import java.util.List;
 @Slf4j
 public class ProductService {
     private final ProductRepository productRepository;
+    private final UserRepository userRepository;
 
-    private final List<Product> products = new ArrayList<>();
 
     public List<Product> getProducts(String name) {
-        List<Product> products = productRepository.findAll();
         if (name != null) {
             return productRepository.findByName(name);
         }
         return productRepository.findAll();
     }
 
-    public void addProduct(Product product, MultipartFile file) throws IOException {
+    public void addProduct(Principal principal, Product product, MultipartFile file) throws IOException {
+        product.setUser(getUserByPrincipal(principal));
         Image image;
         if(file != null) {
             image = toImageEntity(file);
@@ -39,7 +41,11 @@ public class ProductService {
         Product productFromDB = productRepository.save(product);
         productFromDB.setPreviewImageId(productFromDB.getImages().getFirst().getId());
         productRepository.save(product);
-        products.add(product);
+    }
+
+    public User getUserByPrincipal (Principal principal) {
+        if (principal == null) return new User();
+        return userRepository.findByEmail(principal.getName());
     }
 
     private Image toImageEntity(MultipartFile file) throws IOException {

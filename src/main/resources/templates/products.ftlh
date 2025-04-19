@@ -4,7 +4,16 @@
     <title>MAGNIT</title>
 </head>
 <body>
-<h1>MAGNIT</h1> <a href="/login">Войти</a><hr>
+<h1>MAGNIT</h1><hr>
+<#if user.email??>
+    <h3>Имя пользователя: <i>${user.name}</i></h3>
+    <form action="/logout" method="post">
+        <input type="submit" value="Выйти">
+    </form>
+<#else>
+    <a href="/login">Войти</a>
+</#if>
+<hr>
 <h2>Товары:</h2>
 <form action="/" method="get">
     Поиск товаров: <input type="text" name="name"><br>
@@ -16,7 +25,9 @@
     </div>
     <#else>
     <h3>Список товаров пуст</h3>
-</#list><hr>
+</#list>
+<#if user.email??>
+<hr>
 <h3>Создать новый товар</h3>
 <form action="/product/create" method="post" enctype="multipart/form-data">
     Название: <input type="text" name="name"/><br><br>
@@ -26,5 +37,6 @@
     Фото товара: <input type="file" name="file"/><br><br>
     <input type="submit" value="Добавить товар"/>
 </form>
+</#if>
 </body>
 </html>

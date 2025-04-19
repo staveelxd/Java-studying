@@ -4,10 +4,11 @@
     <title>MAGNIT</title>
 </head>
 <body>
-<h1>MAGNIT</h1> <a href="/">Главная</a><hr>
+<h1>MAGNIT</h1>
+<a href="/">Главная</a><hr>
 <h2>Подробная информация о товаре</h2>
 <#list images as img>
-    <img src="/images/${img.id}" height="100px" alt="Фото товара"><br><br>
+    <img src="/images/${img.id}" height="150px" alt="Фото товара"><br><br>
 </#list>
 <b>Название: </b>${product.name}<br>
 <b>Описание: </b>${product.description}<br>
