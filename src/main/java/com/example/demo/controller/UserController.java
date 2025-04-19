@@ -29,11 +29,8 @@ public class UserController {
             model.addAttribute("errorMessage", "Email already exists");
             return "register";
         }
+        System.out.println("User created with email: " + user.getEmail());
         return "redirect:/login";
     }
 
-    @GetMapping("/hello")
-    public String securityUrl() {
-        return "hello";
-    }
 }

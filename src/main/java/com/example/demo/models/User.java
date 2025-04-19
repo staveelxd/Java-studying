@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 
@@ -52,6 +51,7 @@ public class User implements UserDetails {
         created = LocalDateTime.now();
     }
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -79,6 +79,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return active;
+        return true;
     }
 }

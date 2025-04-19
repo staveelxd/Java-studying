@@ -8,15 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-    private final List<User> users = new ArrayList<>();
     private final PasswordEncoder passwordEncoder;
 
     public boolean createUser(User user) {
@@ -31,7 +28,6 @@ public class UserService {
         user.getRoles().add(Role.ROLE_USER);
         log.info("User created with email: {}", email);
         userRepository.save(user);
-        users.add(user);
         return true;
     }
 }
