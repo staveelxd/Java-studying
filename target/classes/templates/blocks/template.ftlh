@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
-    <title>MAGNIT</title>
+    <title>MAGAZIN</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow-sm">
     <div class="container-fluid">
-        <a href="/" class="navbar-brand fw-bold fs-4">MAGNIT</a>
+        <a href="/" class="navbar-brand fw-bold fs-4">MAGAZIN</a>
 
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
